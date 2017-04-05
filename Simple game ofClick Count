@@ -1,0 +1,79 @@
+import java.awt.*;
+import java.awt.event.*;
+class demo{
+	public static void main (String args[]){
+		gui g = new gui();
+		g.setVisible(true);
+	}
+}
+
+class gui extends Frame{
+	Label l1,l2,l3,l4,l5;
+	Button b1,b2,b3,b4,b5;
+	Panel p1,p2;
+	TextField t1,t2;
+
+	class userid implements ActionListener{
+		int count=0;
+		public void actionPerformed(ActionEvent ae){
+			++count;
+			String str = String.valueOf(count);
+			l4.setText(str);
+		}
+	}
+
+	class clr implements ActionListener{
+		public void actionPerformed(ActionEvent ae){
+			l4.setText("0");
+		}
+	}
+
+	gui(){
+		setTitle("Click Contest");
+		setBackground(Color.GRAY);
+		setLayout(null);
+		setLocationRelativeTo(null);
+		setSize(400,300);
+
+		p1 = new Panel();
+		p1.setBounds(10,30,170,290);
+		p1.setBackground(Color.WHITE);
+		p1.setLayout(null);
+		add(p1);
+
+		p2 = new Panel();
+		p2.setBounds(210,30,190,290);
+		p2.setBackground(Color.WHITE);
+		p2.setLayout(null);
+		add(p2);
+
+		l1 = new Label("COUNT");
+		l1.setBounds(60,27,110,20);
+		p2.add(l1);
+
+		l2 = new Label("CLICK ME!!!");
+		l2.setBounds(50,50,72,20);
+		p1.add(l2);
+
+		b1 = new Button("OeyYa!!");
+		b1.addActionListener(new userid());
+		b1.setBounds(50,80,70,30);
+		p1.add(b1);
+
+	    l3 = new Label("RESET");
+		l3.setBounds(60,120,72,20);
+		p1.add(l3);
+
+		b2 = new Button("BoOssE :(");
+		b2.addActionListener(new clr());
+		b2.setBounds(50,150,70,30);
+		p1.add(b2);
+
+		l4 = new Label("0");
+		l4.setBounds(75,67,110,20);
+		p2.add(l4);
+
+
+	}
+
+}
