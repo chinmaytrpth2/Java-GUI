@@ -1,0 +1,100 @@
+import java.awt.*;
+import java.awt.event.*;
+class demo{
+	public static void main (String args[]){
+		gui g = new gui();
+		g.setVisible(true);
+	}
+}
+
+class gui extends Frame{
+	Label l1,l2,l3,l4,l5;
+	Button b1,b2,b3,b4,b5;
+	Panel p1,p2;
+	TextField t1,t2;
+
+	class userid implements ActionListener{
+		public void actionPerformed(ActionEvent ae){
+			String s1 = t1.getText();
+			String s2 = t2.getText();
+
+			if(s1.equals("inc12")&& s2.equals("i1234")){
+				l5.setBounds(150,27,400,20);
+				l5.setText("LOGIN SUCCESSFULLY");
+			}
+			else{
+				l5.setBounds(150,27,400,20);
+				l5.setText("LOGIN FAILED");
+			}
+		}
+	}
+
+	class clr implements ActionListener{
+		public void actionPerformed(ActionEvent ae){
+			t1.setText(null);
+			t2.setText(null);
+			l5.setBounds(0,27,400,20);
+			l5.setText("-------------------------------------------------------------------------------------------------------------------");
+
+		}
+	}
+
+	gui(){
+		setTitle("Login Form");
+		setBackground(Color.GRAY);
+		setLayout(null);
+		setLocationRelativeTo(null);
+		setSize(400,400);
+
+		p1 = new Panel();
+		p1.setBounds(10,30,390,70);
+		p1.setBackground(Color.WHITE);
+		p1.setLayout(null);
+		add(p1);
+
+		l1 = new Label("LOGIN FORM");
+		l1.setBounds(150,27,110,20);
+		p1.add(l1);
+
+		l2 = new Label("User ID:");
+		l2.setBounds(25,140,72,20);
+		add(l2);
+
+		t1 = new TextField();
+		t1.setBounds(150,140,130,20);
+		add(t1);
+
+		l3 = new Label("Passoword:");
+		l3.setBounds(25,180,72,20);
+		add(l3);
+
+		t2 = new TextField();
+		t2.setBounds(150,180,130,20);
+		add(t2);
+
+		b1 = new Button("Login");
+		b1.addActionListener(new userid());
+		b1.setBounds(50,250,70,30);
+		add(b1);
+
+		b2 = new Button("Reset");
+		b2.addActionListener(new clr());
+		b2.setBounds(140,250,70,30);
+		add(b2);
+		
+		
+		p2 = new Panel();
+		p2.setBounds(10,300,390,70);
+		p2.setBackground(Color.WHITE);
+		p2.setLayout(null);
+		add(p2);
+
+		l5 = new Label("-------------------------------------------------------------------------------------------------------------------");
+		l5.setBounds(0,27,400,20);
+		p2.add(l5);
+		
+
+
+	}
+
+}
