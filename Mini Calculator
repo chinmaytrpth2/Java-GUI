@@ -1,0 +1,170 @@
+import java.awt.*;
+import java.awt.event.*;
+class demo{
+	public static void main (String args[]){
+		gui g = new gui();
+		g.setVisible(true);
+	}
+}
+
+class gui extends Frame{
+	Label l1,l2,l3,l4,l5;
+	Button b1,b2,b3,b4,b5;
+	Panel p;
+	TextField t1,t2;
+
+	class add implements ActionListener{
+		public void actionPerformed(ActionEvent ae){
+			try{
+
+			String s1 = t1.getText();
+			String s2 = t2.getText();
+			int n1 = Integer.parseInt(s1);
+			int n2 = Integer.parseInt(s2);
+			int n = n1+n2;
+			String s3 = String.valueOf(n);
+			l5.setText(s3);
+
+			}
+			catch(Exception e){
+				l5.setText("Wrong Input");
+			}
+		}
+	}
+
+		class sub implements ActionListener{
+		public void actionPerformed(ActionEvent ae){
+			try{
+
+			String s1 = t1.getText();
+			String s2 = t2.getText();
+			int n1 = Integer.parseInt(s1);
+			int n2 = Integer.parseInt(s2);
+			int n = n1-n2;
+			String s3 = String.valueOf(n);
+			l5.setText(s3);
+
+			}
+			catch(Exception e){
+				l5.setText("Wrong Input");
+			}
+		}
+	}
+
+		class mul implements ActionListener{
+		public void actionPerformed(ActionEvent ae){
+			try{
+
+			String s1 = t1.getText();
+			String s2 = t2.getText();
+			int n1 = Integer.parseInt(s1);
+			int n2 = Integer.parseInt(s2);
+			int n = n1*n2;
+			String s3 = String.valueOf(n);
+			l5.setText(s3);
+
+			}
+			catch(Exception e){
+				l5.setText("Wrong Input");
+			}
+		}
+	}
+
+		class div implements ActionListener{
+		public void actionPerformed(ActionEvent ae){
+			try{
+
+			String s1 = t1.getText();
+			String s2 = t2.getText();
+			int n1 = Integer.parseInt(s1);
+			int n2 = Integer.parseInt(s2);
+			int n = n1/n2;
+			String s3 = String.valueOf(n);
+			l5.setText(s3);
+
+			}
+			catch(Exception e){
+				l5.setText("Wrong Input");
+			}
+		}
+	}
+
+		class clr implements ActionListener{
+		public void actionPerformed(ActionEvent ae){
+			t1.setText(null);
+			t2.setText(null);
+			l5.setText("_______________________");
+		}
+	}
+
+	gui(){
+		setTitle("Mini Calculator");
+		setBackground(Color.YELLOW);
+		setLayout(null);
+		setLocationRelativeTo(null);
+		setSize(400,300);
+
+		l1 = new Label("MINI CALCULATOR");
+		l1.setBounds(150,40,110,20);
+		add(l1);
+
+		p = new Panel();
+		p.setBounds(50,80,300,150);
+		p.setBackground(Color.BLUE);
+		p.setLayout(null);
+		add(p);
+
+		l2 = new Label("Enter 1st no:");
+		l2.setBounds(25,30,72,20);
+		p.add(l2);
+
+		t1 = new TextField();
+		t1.setBounds(150,30,130,20);
+		p.add(t1);
+
+		l3 = new Label("Enter 2nd no:");
+		l3.setBounds(25,70,72,20);
+		p.add(l3);
+
+		t2 = new TextField();
+		t2.setBounds(150,65,130,20);
+		p.add(t2);
+
+		b1 = new Button("+");
+		b1.addActionListener(new add());
+		b1.setBounds(50,110,30,30);
+		p.add(b1);
+
+		b2 = new Button("-");
+		b2.addActionListener(new sub());
+		b2.setBounds(90,110,30,30);
+		p.add(b2);
+
+		b3 = new Button("/");
+		b3.addActionListener(new div());
+		b3.setBounds(130,110,30,30);
+		p.add(b3);
+
+		b4 = new Button("*");
+		b4.addActionListener(new mul());
+		b4.setBounds(170,110,30,30);
+		p.add(b4);
+
+		b5 = new Button("clr");
+		b5.addActionListener(new clr());
+		b5.setBounds(210,110,30,30);
+		p.add(b5);
+
+		l4 = new Label("Answer=");
+		l4.setBounds(40,245,72,20);
+		add(l4);
+
+		l5 = new Label("_______________________");
+		l5.setBounds(110,245,102,20);
+		add(l5);
+		
+
+
+	}
+
+}
